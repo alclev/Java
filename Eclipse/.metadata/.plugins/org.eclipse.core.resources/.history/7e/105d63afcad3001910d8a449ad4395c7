@@ -1,0 +1,41 @@
+import processing.core.PApplet;
+import processing.core.PVector;
+
+public class Projectile {
+
+	public Projectile(PApplet papp) {
+		p = papp;
+		pos = new PVector(50, 750, 0);
+		run = false;
+		diam = 40;
+	}
+
+	private PApplet p;
+	private PVector pos;
+	private PVector vel;
+	private PVector acc;
+	private boolean run;
+	private int diam;
+
+	public void render() {
+		p.pushMatrix();
+		p.fill(250, 30, 90);
+		p.ellipse(pos.x, pos.y, diam, diam);
+		p.popMatrix();
+	}
+
+	public void launch() {
+		run = true;
+	}
+
+	public void update(float dt) {
+		if (run) {
+			pos.add(PVector.mult(vel, dt));
+			vel.add(PVector.mult(acc, dt));
+		}
+	}
+
+	public float getRange() {
+		return pos.x - (diam + 50);
+	}
+}

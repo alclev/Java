@@ -1,0 +1,14 @@
+public class SleepIn(){
+    public SleepIn(){
+
+    }
+    public boolean sleepIn(boolean weekday, boolean vacation) {
+	if(weekday != true){
+	    
+    }
+
+    public static main void(String [] args){
+
+	
+
+}

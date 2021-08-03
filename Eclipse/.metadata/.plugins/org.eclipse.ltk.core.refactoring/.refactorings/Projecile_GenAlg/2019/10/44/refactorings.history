@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;NetForce&apos; to &apos;Force&apos;&#x0A;- Original project: &apos;Projecile_GenAlg&apos;&#x0A;- Original element: &apos;NetForce&apos;&#x0A;- Renamed element: &apos;Force&apos;&#x0A;- Update references to refactored element&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;NetForce&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;{NetForce.java[NetForce" matchStrategy="1" name="Force" qualified="false" references="true" similarDeclarations="false" stamp="1572285265225" textual="false" version="1.0"/>
+</session>

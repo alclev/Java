@@ -1,0 +1,8 @@
+
+public class Testing {
+	public static void main(String args[]) {
+		Encoding chng= new Encoding("asdfasdfadsfasdfasdfasdf");
+		System.out.println(chng.encode());
+		
+	}
+}

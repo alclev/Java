@@ -1,0 +1,24 @@
+import processing.core.PApplet;
+import processing.core.PVector;
+
+public class Projectile {
+
+	public Projectile(PApplet papp) {
+		p = papp;
+	}
+
+	private PApplet p;
+	private PVector pos;
+	private PVector vel;
+	private PVector acc;
+	private boolean run;
+	
+
+	public void render() {
+		
+	}
+
+	public void update() {
+
+	}
+}

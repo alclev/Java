@@ -1,0 +1,36 @@
+
+public class Faculty extends Employee {
+
+// private fields
+	private String rank;
+
+//default constructor
+	public Faculty() {
+		super();
+		rank = "none";
+	}
+
+//constructor with parameters
+	public Faculty(String name, String email, String phone, String address, int id, String title, double annualSalary,
+			String rank) {
+		super(name, email, phone, address, id, title, annualSalary);
+		this.rank = rank;
+	}
+
+//accessors
+	public String getRank() {
+		return rank;
+	}
+
+	@Override
+	public String toString() {
+		String out = super.toString();
+		out += "Rank: " + rank + "\n";
+		return out;
+	}
+
+//mutator
+	public void setRank(String rank) {
+		this.rank = rank;
+	}
+}

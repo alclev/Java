@@ -1,0 +1,68 @@
+
+public class Person {
+//default constructor
+	public Person() {
+		name = "none";
+		email = "none";
+		phone = "none";
+		address = "none";
+
+	}
+//constructor with parameters
+	public Person(String name, String email, String phone, String address) {
+		this.name = name;
+		this.email = email;
+		this.phone = phone;
+		this.address = address;
+	}
+
+// private fields
+	private String name;
+	private String email;
+	private String phone;
+	private String address;
+
+// accessors
+	public String getName() {
+		return name;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public String toString() {
+		String out;
+		out = "Name: " + name + "\n";
+		out += "Address: " + address + "\n";
+		out += "Phone:" + phone + "\n";
+		out += "Email: " + email + "\n";
+		return out;
+	}
+
+// mutators
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+}

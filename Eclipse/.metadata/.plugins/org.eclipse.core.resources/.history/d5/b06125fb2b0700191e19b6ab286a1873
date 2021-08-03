@@ -1,0 +1,32 @@
+import java.lang.Math;
+import java.text.DecimalFormat; 
+
+public class Encoding {
+	private String str;
+	
+	public Encoding(String str) {
+		this.str=str;
+	}
+	
+	public double strToDouble() {
+		double result=0;
+		for(int i=0;i<str.length();i++) {
+			char cr=str.charAt(i);
+			int add= cr;
+			result+=add;
+		}
+		return result;
+	}
+	public String encode() {
+		double output=strToDouble();
+		output=(Math.pow(output,3)-40)*2;
+		DecimalFormat df = new DecimalFormat("0");
+		df.setMaximumFractionDigits(340);
+		return df.format(output);
+	}
+	public Double decode(String str) {
+		double dec=Double.parseDouble(str);
+		dec=Math.pow(((dec/2)+40),1/3);
+		return dec;
+	}
+}

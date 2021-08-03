@@ -1,0 +1,23 @@
+INDEX VERSION 1.131+/Users/alexclevenger/Documents/Java/OldEclipse/.metadata/.plugins/org.eclipse.jdt.core
+2521458861.index
+2885345610.index
+3320242962.index
+2546135763.index
+3796412413.index
+2961604587.index
+2044842260.index
+3744010300.index
+19188038.index
+4229406419.index
+1511643564.index
+3794545106.index
+2144719672.index
+1187723225.index
+1459781328.index
+2913068564.index
+897035083.index
+3703194086.index
+3741402622.index
+3964251825.index
+2485162612.index
+669912678.index

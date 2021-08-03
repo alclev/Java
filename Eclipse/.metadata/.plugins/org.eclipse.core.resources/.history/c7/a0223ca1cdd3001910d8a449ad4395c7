@@ -1,0 +1,9 @@
+import processing.core.PApplet;
+
+public class Environment {
+	public Environment(PApplet papp) {
+		p = papp;
+	}
+
+	private PApplet p;
+}

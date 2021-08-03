@@ -1,0 +1,14 @@
+public class Encoding {
+	private double input;
+
+	public Encoding(double num) {
+		input=num;
+	}
+	public Encoding(String str) {
+		input=Double.valueOf(str);
+	}
+	
+	public double test() {
+		return input;
+	}
+}

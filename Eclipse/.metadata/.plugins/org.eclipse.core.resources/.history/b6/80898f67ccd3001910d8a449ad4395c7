@@ -1,0 +1,29 @@
+import processing.core.PApplet;
+
+public class Main extends PApplet {
+
+	public void settings() {
+		size(1000, 600);
+	}
+
+	public void setup() {
+		ball = new Projectile(this);
+		envo = new Environment(this);
+
+	}
+
+	private Projectile ball;
+	private Environment envo;
+
+	public void draw() {
+		background(255, 30, 90);
+		pushStyle();
+		line(0, 430, width, 430);
+		ball.render();
+	}
+
+	public static void main(String[] args) {
+		PApplet.main(new String[] { Main.class.getName() });
+
+	}
+}
