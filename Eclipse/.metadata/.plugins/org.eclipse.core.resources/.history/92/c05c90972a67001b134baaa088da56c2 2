@@ -1,0 +1,57 @@
+
+public class Student extends Person {
+//default constructor
+	public Student() {
+		super();
+		id = 0;
+		major = "none";
+		gpa = 0.0;
+	}
+//constructor with parameters
+	public Student(String name, String email, String phone, String address, int id, String major, double gpa) {
+		super(name, email, phone, address);
+		this.id = id;
+		this.major = major;
+		this.gpa = gpa;
+	}
+
+// private fields
+	private int id;
+	private String major;
+	private double gpa;
+
+// accessors
+	public int getId() {
+		return id;
+	}
+
+	public String getMajor() {
+		return major;
+	}
+
+	public double getGpa() {
+		return gpa;
+	}
+
+	@Override
+	public String toString() {
+		String out = super.toString();
+		out += "ID: " + id + "\n";
+		out += "Major: " + major + "\n";
+		out += "GPA: " + String.format("%2F", gpa) + "\n";
+		return out;
+	}
+// mutators
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public void setMajor(String major) {
+		this.major = major;
+	}
+
+	public void setGpa(double gpa) {
+		this.gpa = gpa;
+	}
+
+}

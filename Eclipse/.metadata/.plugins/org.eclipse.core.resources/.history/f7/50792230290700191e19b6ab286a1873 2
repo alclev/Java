@@ -1,0 +1,582 @@
+
+public class Testing {
+	public static void main(String args[]) {
+		Encoding chng= new Encoding("Stack Overflow\n" + 
+				"\n" + 
+				"Search…\n" + 
+				" \n" + 
+				"Log In Sign Up\n" + 
+				"Join Stack Overflow to learn, share knowledge, and build your career.\n" + 
+				"\n" + 
+				"Email Sign Up\n" + 
+				"OR SIGN IN WITH\n" + 
+				" Google\n" + 
+				" Facebook\n" + 
+				"Home\n" + 
+				"PUBLIC\n" + 
+				"Stack Overflow\n" + 
+				"Tags\n" + 
+				"Users\n" + 
+				"Jobs\n" + 
+				"Teams\n" + 
+				"Q&A for work\n" + 
+				"Learn More\n" + 
+				" \n" + 
+				"How do I print a double value without scientific notation using Java?\n" + 
+				"Ask Question\n" + 
+				"\n" + 
+				"174\n" + 
+				"\n" + 
+				"\n" + 
+				"42\n" + 
+				"I want to print a double value in Java without exponential form.\n" + 
+				"\n" + 
+				"double dexp = 12345678;\n" + 
+				"System.out.println(\"dexp: \"+dexp);\n" + 
+				"It shows this E notation: 1.2345678E7.\n" + 
+				"\n" + 
+				"I want it to print it like this: 12345678\n" + 
+				"\n" + 
+				"What is the best way to prevent this?\n" + 
+				"\n" + 
+				"java double\n" + 
+				"shareimprove this question\n" + 
+				"edited Nov 18 '17 at 12:37\n" + 
+				"\n" + 
+				"Peter Mortensen\n" + 
+				"13.4k1983111\n" + 
+				"asked Apr 19 '13 at 5:49\n" + 
+				"\n" + 
+				"Despicable\n" + 
+				"1,31231736\n" + 
+				"add a comment\n" + 
+				"12 Answers\n" + 
+				"active oldest votes\n" + 
+				"\n" + 
+				"93\n" + 
+				"\n" + 
+				"You could use printf() with %f:\n" + 
+				"\n" + 
+				"double dexp = 12345678;\n" + 
+				"System.out.printf(\"dexp: %f\\n\", dexp);\n" + 
+				"This will print dexp: 12345678.000000. If you don't want the fractional part, use\n" + 
+				"\n" + 
+				"System.out.printf(\"dexp: %.0f\\n\", dexp);\n" + 
+				"This uses the format specifier language explained in the documentation.\n" + 
+				"\n" + 
+				"The default toString() format used in your original code is spelled out here.\n" + 
+				"\n" + 
+				"shareimprove this answer\n" + 
+				"answered Apr 19 '13 at 5:51\n" + 
+				"\n" + 
+				"NPE\n" + 
+				"346k60740872\n" + 
+				"1\n" + 
+				"but it showed dexp: 12345681.000000 which is wrong value.And actually after then I want to display it on my web page where it display like this 1.2345678E7.Is there anyway through which i can store it in any double like 12345678 and any other way? – Despicable Apr 19 '13 at 5:56\n" + 
+				"1\n" + 
+				"@despicable: You may be have been looking at the old, incomplete version of the answer. Try reloading the page. There should be a paragraph about %.0f. – NPE Apr 19 '13 at 5:57 \n" + 
+				"@despicable you could store dexp as an int so you can easily use it both ways – Justin Apr 19 '13 at 5:58\n" + 
+				"6\n" + 
+				"IT ROUNDS OFF THE NUMBER – Confuse Mar 12 '15 at 16:15\n" + 
+				"2\n" + 
+				"%.0f rounds off the number. Is there a way to just discarding the trailing zeros? – NurShomik Jan 23 '17 at 19:59\n" + 
+				"add a comment\n" + 
+				"\n" + 
+				"204\n" + 
+				"\n" + 
+				"Java prevent E notation in a double:\n" + 
+				"Five different ways to convert a double to a normal number:\n" + 
+				"\n" + 
+				"import java.math.BigDecimal;\n" + 
+				"import java.text.DecimalFormat;\n" + 
+				"\n" + 
+				"public class Runner {\n" + 
+				"    public static void main(String[] args) {\n" + 
+				"        double myvalue = 0.00000021d;\n" + 
+				"\n" + 
+				"        //Option 1 Print bare double.\n" + 
+				"        System.out.println(myvalue);\n" + 
+				"\n" + 
+				"        //Option2, use decimalFormat.\n" + 
+				"        DecimalFormat df = new DecimalFormat(\"#\");\n" + 
+				"        df.setMaximumFractionDigits(8);\n" + 
+				"        System.out.println(df.format(myvalue));\n" + 
+				"\n" + 
+				"        //Option 3, use printf.\n" + 
+				"        System.out.printf(\"%.9f\", myvalue);\n" + 
+				"        System.out.println();\n" + 
+				"\n" + 
+				"        //Option 4, convert toBigDecimal and ask for toPlainString().\n" + 
+				"        System.out.print(new BigDecimal(myvalue).toPlainString());\n" + 
+				"        System.out.println();\n" + 
+				"\n" + 
+				"        //Option 5, String.format \n" + 
+				"        System.out.println(String.format(\"%.12f\", myvalue));\n" + 
+				"    }\n" + 
+				"}\n" + 
+				"This program prints:\n" + 
+				"\n" + 
+				"2.1E-7\n" + 
+				".00000021\n" + 
+				"0.000000210\n" + 
+				"0.000000210000000000000001085015324114868562332958390470594167709350585\n" + 
+				"0.000000210000\n" + 
+				"Which are all the same value.\n" + 
+				"\n" + 
+				"Protip: If you are confused as to why those random digits appear beyond a certain threshold in the double value, this video explains: computerphile why does 0.1+0.2 equal 0.30000000000001?\n" + 
+				"\n" + 
+				"http://youtube.com/watch?v=PZRI1IfStY0\n" + 
+				"\n" + 
+				"shareimprove this answer\n" + 
+				"edited Dec 13 at 14:52\n" + 
+				"answered Jan 5 '14 at 18:53\n" + 
+				"\n" + 
+				"Eric Leschinski\n" + 
+				"85.4k37316272\n" + 
+				"add a comment\n" + 
+				"\n" + 
+				"74\n" + 
+				"\n" + 
+				"In short:\n" + 
+				"\n" + 
+				"If you want to get rid of trailing zeros and Locale problems, then you should use:\n" + 
+				"\n" + 
+				"double myValue = 0.00000021d;\n" + 
+				"\n" + 
+				"DecimalFormat df = new DecimalFormat(\"0\", DecimalFormatSymbols.getInstance(Locale.ENGLISH));\n" + 
+				"df.setMaximumFractionDigits(340); // 340 = DecimalFormat.DOUBLE_FRACTION_DIGITS\n" + 
+				"\n" + 
+				"System.out.println(df.format(myValue)); // Output: 0.00000021\n" + 
+				"Explanation:\n" + 
+				"\n" + 
+				"Why other answers did not suit me:\n" + 
+				"\n" + 
+				"Double.toString() or System.out.println or FloatingDecimal.toJavaFormatString uses scientific notations if double is less than 10^-3 or greater than or equal to 10^7\n" + 
+				"By using %f, the default decimal precision is 6, otherwise you can hardcode it, but it results in extra zeros added if you have fewer decimals. Example:\n" + 
+				"\n" + 
+				"double myValue = 0.00000021d;\n" + 
+				"String.format(\"%.12f\", myvalue); // Output: 0.000000210000\n" + 
+				"By using setMaximumFractionDigits(0); or %.0f you remove any decimal precision, which is fine for integers/longs, but not for double:\n" + 
+				"\n" + 
+				"double myValue = 0.00000021d;\n" + 
+				"System.out.println(String.format(\"%.0f\", myvalue)); // Output: 0\n" + 
+				"DecimalFormat df = new DecimalFormat(\"0\");\n" + 
+				"System.out.println(df.format(myValue)); // Output: 0\n" + 
+				"By using DecimalFormat, you are local dependent. In French locale, the decimal separator is a comma, not a point:\n" + 
+				"\n" + 
+				"double myValue = 0.00000021d;\n" + 
+				"DecimalFormat df = new DecimalFormat(\"0\");\n" + 
+				"df.setMaximumFractionDigits(340);\n" + 
+				"System.out.println(df.format(myvalue)); // Output: 0,00000021\n" + 
+				"Using the ENGLISH locale makes sure you get a point for decimal separator, wherever your program will run.\n" + 
+				"\n" + 
+				"Why using 340 then for setMaximumFractionDigits?\n" + 
+				"\n" + 
+				"Two reasons:\n" + 
+				"\n" + 
+				"setMaximumFractionDigits accepts an integer, but its implementation has a maximum digits allowed of DecimalFormat.DOUBLE_FRACTION_DIGITS which equals 340\n" + 
+				"Double.MIN_VALUE = 4.9E-324 so with 340 digits you are sure not to round your double and lose precision.\n" + 
+				"shareimprove this answer\n" + 
+				"edited Nov 18 '17 at 12:44\n" + 
+				"\n" + 
+				"Peter Mortensen\n" + 
+				"13.4k1983111\n" + 
+				"answered Aug 14 '14 at 12:21\n" + 
+				"\n" + 
+				"JBE\n" + 
+				"6,46333736\n" + 
+				"What is your opinion of new BigDecimal(myvalue).toPlainString() From the description at docs.oracle.com/javase/7/docs/api/java/math/…), it's not immediately obvious how it behaves when given different types of numbers, but it does eliminate scientific notation. – Derek Mahar Apr 7 '15 at 15:22\n" + 
+				"3\n" + 
+				"new BigDecimal(0.00000021d).toPlainString() output 0.0000002100000000000000010850153241148685623329583904705941677093505859375 which is not what you would expect ... – JBE Apr 7 '15 at 19:06\n" + 
+				"any idea how to use your answer in scala? probably a matter of appropriate imports but I'm new here. – jangorecki Aug 1 '16 at 16:54\n" + 
+				"1\n" + 
+				"This answer must be marked as a correct one – alexanoid Dec 26 '17 at 21:47\n" + 
+				"add a comment\n" + 
+				"\n" + 
+				"23\n" + 
+				"\n" + 
+				"You can try it with DecimalFormat. With this class you are very flexible in parsing your numbers.\n" + 
+				"You can exactly set the pattern you want to use.\n" + 
+				"In your case for example:\n" + 
+				"\n" + 
+				"double test = 12345678;\n" + 
+				"DecimalFormat df = new DecimalFormat(\"#\");\n" + 
+				"df.setMaximumFractionDigits(0);\n" + 
+				"System.out.println(df.format(test)); //12345678\n" + 
+				"shareimprove this answer\n" + 
+				"answered Apr 19 '13 at 6:08\n" + 
+				"\n" + 
+				"Obl Tobl\n" + 
+				"4,45762553\n" + 
+				"add a comment\n" + 
+				"\n" + 
+				"14\n" + 
+				"\n" + 
+				"I've got another solution involving BigDecimal's toPlainString(), but this time using the String-constructor, which is recommended in the javadoc:\n" + 
+				"\n" + 
+				"this constructor is compatible with the values returned by Float.toString and Double.toString. This is generally the preferred way to convert a float or double into a BigDecimal, as it doesn't suffer from the unpredictability of the BigDecimal(double) constructor.\n" + 
+				"\n" + 
+				"It looks like this in its shortest form:\n" + 
+				"\n" + 
+				"return new BigDecimal(myDouble.toString()).stripTrailingZeros().toPlainString();\n" + 
+				"Pre Java 8, this results in \"0.0\" for any zero-valued Doubles, so you would need to add:\n" + 
+				"\n" + 
+				"if (myDouble.doubleValue() == 0)\n" + 
+				"    return \"0\";\n" + 
+				"NaN and infinite values have to be checked extra.\n" + 
+				"\n" + 
+				"The final result of all these considerations:\n" + 
+				"\n" + 
+				"public static String doubleToString(Double d) {\n" + 
+				"    if (d == null)\n" + 
+				"        return null;\n" + 
+				"    if (d.isNaN() || d.isInfinite())\n" + 
+				"        return d.toString();\n" + 
+				"\n" + 
+				"    // Pre Java 8, a value of 0 would yield \"0.0\" below\n" + 
+				"    if (d.doubleValue() == 0)\n" + 
+				"        return \"0\";\n" + 
+				"    return new BigDecimal(d.toString()).stripTrailingZeros().toPlainString();\n" + 
+				"}\n" + 
+				"This can also be copied/pasted to work nicely with Float.\n" + 
+				"\n" + 
+				"shareimprove this answer\n" + 
+				"edited Nov 18 '17 at 12:50\n" + 
+				"\n" + 
+				"Peter Mortensen\n" + 
+				"13.4k1983111\n" + 
+				"answered Aug 10 '16 at 12:39\n" + 
+				"\n" + 
+				"Manuel\n" + 
+				"20126\n" + 
+				"2\n" + 
+				"I've read countless schemes to convert a double value to a String and this is the best: short, straightforward, configurable. – Paul Nov 17 '16 at 19:47\n" + 
+				"Great solution, really helped me converting double values to String and avoiding the scientific notation. Thanks! – pleft Aug 24 '17 at 14:13\n" + 
+				"Why d.doubleValue() == 0 instead of d == 0? – Alexei Fando Oct 27 '17 at 14:33\n" + 
+				"Because it avoids auto-unboxing, which I like better in that situation, but views may of course differ on this. If you're on java 8 (9 will probably be the same), you can leave out those 2 lines altogether. – Manuel Oct 30 '17 at 15:40 \n" + 
+				"Just tried with java 9, those 2 lines can be left out on 9 as well. – Manuel Oct 30 '17 at 16:04\n" + 
+				"add a comment\n" + 
+				"\n" + 
+				"8\n" + 
+				"\n" + 
+				"This will work as long as your number is a whole number:\n" + 
+				"\n" + 
+				"double dnexp = 12345678;\n" + 
+				"System.out.println(\"dexp: \" + (long)dexp);\n" + 
+				"If the double variable has precision after the decimal point it will truncate it.\n" + 
+				"\n" + 
+				"shareimprove this answer\n" + 
+				"edited Jan 5 '14 at 18:43\n" + 
+				"\n" + 
+				"Eric Leschinski\n" + 
+				"85.4k37316272\n" + 
+				"answered Aug 9 '13 at 14:37\n" + 
+				"\n" + 
+				"NateS\n" + 
+				"4,38543850\n" + 
+				"add a comment\n" + 
+				"\n" + 
+				"4\n" + 
+				"\n" + 
+				"I needed to convert some double to currency values and found that most of the solutions were OK, but not for me.\n" + 
+				"\n" + 
+				"The DecimalFormat was eventually the way for me, so here is what I've done:\n" + 
+				"\n" + 
+				"   public String foo(double value) //Got here 6.743240136E7 or something..\n" + 
+				"    {\n" + 
+				"        DecimalFormat formatter;\n" + 
+				"\n" + 
+				"        if(value - (int)value > 0.0)\n" + 
+				"            formatter = new DecimalFormat(\"0.00\"); // Here you can also deal with rounding if you wish..\n" + 
+				"        else\n" + 
+				"            formatter = new DecimalFormat(\"0\");\n" + 
+				"\n" + 
+				"        return formatter.format(value);\n" + 
+				"    }\n" + 
+				"As you can see, if the number is natural I get - say - 20000000 instead of 2E7 (etc.) - without any decimal point.\n" + 
+				"\n" + 
+				"And if it's decimal, I get only two decimal digits.\n" + 
+				"\n" + 
+				"shareimprove this answer\n" + 
+				"edited Nov 18 '17 at 12:52\n" + 
+				"\n" + 
+				"Peter Mortensen\n" + 
+				"13.4k1983111\n" + 
+				"answered Dec 22 '16 at 14:39\n" + 
+				"\n" + 
+				"JamesC\n" + 
+				"19914\n" + 
+				"add a comment\n" + 
+				"\n" + 
+				"3\n" + 
+				"\n" + 
+				"The following code detects if the provided number is presented in scientific notation. If so it is represented in normal presentation with a maximum of '25' digits.\n" + 
+				"\n" + 
+				" static String convertFromScientificNotation(double number) {\n" + 
+				"    // Check if in scientific notation\n" + 
+				"    if (String.valueOf(number).toLowerCase().contains(\"e\")) {\n" + 
+				"        System.out.println(\"The scientific notation number'\"\n" + 
+				"                + number\n" + 
+				"                + \"' detected, it will be converted to normal representation with 25 maximum fraction digits.\");\n" + 
+				"        NumberFormat formatter = new DecimalFormat();\n" + 
+				"        formatter.setMaximumFractionDigits(25);\n" + 
+				"        return formatter.format(number);\n" + 
+				"    } else\n" + 
+				"        return String.valueOf(number);\n" + 
+				"}\n" + 
+				"shareimprove this answer\n" + 
+				"edited Jun 8 '15 at 0:37\n" + 
+				"\n" + 
+				"Theresa\n" + 
+				"1,95493339\n" + 
+				"answered Jun 7 '15 at 23:48\n" + 
+				"\n" + 
+				"Memin\n" + 
+				"588617\n" + 
+				"add a comment\n" + 
+				"\n" + 
+				"2\n" + 
+				"\n" + 
+				"Java/Kotlin compiler converts any value greater than 9999999 (greater than or equal to 10 million) to scientific notation ie. Epsilion notation.\n" + 
+				"\n" + 
+				"Ex: 12345678 is converted to 1.2345678E7\n" + 
+				"\n" + 
+				"Use this code to avoid automatic conversion to scientific notation:\n" + 
+				"\n" + 
+				"fun setTotalSalesValue(String total) {\n" + 
+				"        var valueWithoutEpsilon = total.toBigDecimal()\n" + 
+				"        /* Set the converted value to your android view using setText() function */\n" + 
+				"        totalSalesValue.setText() = valueWithoutEpsilon.toPlainString()\n" + 
+				"    }\n" + 
+				"shareimprove this answer\n" + 
+				"answered Feb 8 at 5:51\n" + 
+				"\n" + 
+				"Ramakrishna Joshi\n" + 
+				"211\n" + 
+				"add a comment\n" + 
+				"\n" + 
+				"1\n" + 
+				"\n" + 
+				"I had this same problem in my production code when I was using it as a string input to a math.Eval() function which takes a string like \"x + 20 / 50\"\n" + 
+				"\n" + 
+				"I looked at hundreds of articles... In the end I went with this because of the speed. And because the Eval function was going to convert it back into its own number format eventually and math.Eval() didn't support the trailing E-07 that other methods returned, and anything over 5 dp was too much detail for my application anyway.\n" + 
+				"\n" + 
+				"This is now used in production code for an application that has 1,000+ users...\n" + 
+				"\n" + 
+				"double value = 0.0002111d;\n" + 
+				"String s = Double.toString(((int)(value * 100000.0d))/100000.0d); // Round to 5 dp\n" + 
+				"\n" + 
+				"s display as:  0.00021\n" + 
+				"shareimprove this answer\n" + 
+				"edited Nov 18 '17 at 12:49\n" + 
+				"\n" + 
+				"Peter Mortensen\n" + 
+				"13.4k1983111\n" + 
+				"answered Jul 29 '15 at 8:05\n" + 
+				"\n" + 
+				"hamish\n" + 
+				"768715\n" + 
+				"add a comment\n" + 
+				"\n" + 
+				"0\n" + 
+				"\n" + 
+				"I think everyone had the right idea, but all answers were not straightforward. I can see this being a very useful piece of code. Here is a snippet of what will work:\n" + 
+				"\n" + 
+				"System.out.println(String.format(\"%.8f\", EnterYourDoubleVariableHere));\n" + 
+				"the \".8\" is where you set the number of decimal places you would like to show.\n" + 
+				"\n" + 
+				"I am using Eclipse and it worked no problem.\n" + 
+				"\n" + 
+				"Hope this was helpful. I would appreciate any feedback!\n" + 
+				"\n" + 
+				"shareimprove this answer\n" + 
+				"edited Mar 8 '17 at 1:58\n" + 
+				"\n" + 
+				"Arsen Davtyan\n" + 
+				"82661626\n" + 
+				"answered Mar 8 '17 at 0:39\n" + 
+				"\n" + 
+				"Brian Castro\n" + 
+				"11\n" + 
+				"add a comment\n" + 
+				"\n" + 
+				"0\n" + 
+				"\n" + 
+				"For integer values represented by a double, you can use this code, which is much faster than the other solutions.\n" + 
+				"\n" + 
+				"public static String doubleToString(final double d) {\n" + 
+				"    // check for integer, also see https://stackoverflow.com/a/9898613/868941 and\n" + 
+				"    // https://github.com/google/guava/blob/master/guava/src/com/google/common/math/DoubleMath.java\n" + 
+				"    if (isMathematicalInteger(d)) {\n" + 
+				"        return Long.toString((long)d);\n" + 
+				"    } else {\n" + 
+				"        // or use any of the solutions provided by others\n" + 
+				"        return Double.toString(d);\n" + 
+				"    }\n" + 
+				"}\n" + 
+				"\n" + 
+				"// Java 8+\n" + 
+				"public static boolean isMathematicalInteger(final double d) {\n" + 
+				"    return StrictMath.rint(d) == d && Double.isFinite(d);\n" + 
+				"}\n" + 
+				"shareimprove this answer\n" + 
+				"answered Jan 18 at 7:33\n" + 
+				"\n" + 
+				"rmuller\n" + 
+				"6,31623359\n" + 
+				"add a comment\n" + 
+				"Your Answer\n" + 
+				"\n" + 
+				"Sign up or log in\n" + 
+				" Sign up using Google\n" + 
+				" Sign up using Facebook\n" + 
+				" Sign up using Email and Password\n" + 
+				"Post as a guest\n" + 
+				"Name\n" + 
+				"\n" + 
+				"Email\n" + 
+				"Required, but never shown\n" + 
+				"\n" + 
+				"\n" + 
+				"Post Your Answer\n" + 
+				"By clicking \"Post Your Answer\", you acknowledge that you have read our updated terms of service, privacy policy and cookie policy, and that your continued use of the website is subject to these policies.\n" + 
+				"\n" + 
+				"Not the answer you're looking for? Browse other questions tagged java double or ask your own question.\n" + 
+				"asked\n" + 
+				"\n" + 
+				"5 years, 8 months ago\n" + 
+				"\n" + 
+				"viewed\n" + 
+				"\n" + 
+				"235,749 times\n" + 
+				"\n" + 
+				"active\n" + 
+				"\n" + 
+				"10 days ago\n" + 
+				"\n" + 
+				"BLOG\n" + 
+				"10 Years of Stack Giving Back\n" + 
+				"\n" + 
+				"National Security Agency\n" + 
+				"National Security Agency\n" + 
+				"Cybersecurity\n" + 
+				"Software Engineer\n" + 
+				"Fort Meade, MD$79k - $105k\n" + 
+				"python\n" + 
+				"java\n" + 
+				"Digital Network Exploitation Analyst - Entry/Mid-Level\n" + 
+				"Fort Meade, MD$79k - $105k\n" + 
+				"java\n" + 
+				"r\n" + 
+				"Cryptographic Vulnerability Analyst - Entry/Mid-Level\n" + 
+				"Fort Meade, MD$70k - $107k\n" + 
+				"security\n" + 
+				"r\n" + 
+				"View all 10 job openings!\n" + 
+				"Linked\n" + 
+				"0\n" + 
+				"When i use double it shows my number as 1.0E7?\n" + 
+				"2\n" + 
+				"Converting string to double with dot\n" + 
+				"0\n" + 
+				"How change 2.516415E7 number in Java?\n" + 
+				"3\n" + 
+				"How to remove E from float big number?\n" + 
+				"0\n" + 
+				"Converting exponential into number in java\n" + 
+				"-3\n" + 
+				"How to extract double value with the same format from String in java?\n" + 
+				"0\n" + 
+				"Math.round being ignored\n" + 
+				"0\n" + 
+				"Convert double into String 12Digit\n" + 
+				"0\n" + 
+				"How to format a double so, that it will never show scientific notation?\n" + 
+				"0\n" + 
+				"I want to print amount like 2523525252.025 when I using double data type it's changed in 2.523525252025E9 how can fix?\n" + 
+				"see more linked questions…\n" + 
+				"Related\n" + 
+				"5610\n" + 
+				"Is Java “pass-by-reference” or “pass-by-value”?\n" + 
+				"1071\n" + 
+				"How to round a number to n decimal places in Java\n" + 
+				"3056\n" + 
+				"How to generate random integers within a specific range in Java?\n" + 
+				"1644\n" + 
+				"What's the simplest way to print a Java array?\n" + 
+				"1700\n" + 
+				"How to get an enum value from a string value in Java?\n" + 
+				"721\n" + 
+				"Efficiency of Java “Double Brace Initialization”?\n" + 
+				"887\n" + 
+				"Get current stack trace in Java\n" + 
+				"253\n" + 
+				"How do you test to see if a double is equal to NaN?\n" + 
+				"768\n" + 
+				"Java string to date conversion\n" + 
+				"2677\n" + 
+				"How do I convert a String to an int in Java?\n" + 
+				"Hot Network Questions\n" + 
+				"From 2019 to digits\n" + 
+				"Is Mars more at risk than Earth for asteroid collisions?\n" + 
+				"Reverse engineering a math magic trick involving matrices.\n" + 
+				"Why doesn't water actually perfectly wet glass?\n" + 
+				"Meaning of a movie shot type with too little of a leadroom\n" + 
+				"Acknowledgment to a referee of a different journal who previously rejected an article\n" + 
+				"Confessions of an incompetent worker. How to cope with colleagues hating me and failing in self improvement?\n" + 
+				"What kind of weapons would a much smaller species use to fight humans\n" + 
+				"Gift of Travel: Way to get a gift card that works for any airline, but only airlines?\n" + 
+				"What could cause a baby boom across the western world?\n" + 
+				"What instrument is an \"alto\" string part in a score?\n" + 
+				"Are we born wicked/evil?\n" + 
+				"Why do people say \"I have known someone to do\" but not \"I know someone to do\"?\n" + 
+				"Does IRS count paying mortgage principal as taxable income from family?\n" + 
+				"What does a question mark inside parentheses (?) mean?\n" + 
+				"Bessel Beam , how it is possible to plot a 3D with a 2D projection in one plot?\n" + 
+				"How to find kernel module for a given device?\n" + 
+				"Why does =-x^2+x for x=3 in Excel result in 12 instead of -6?\n" + 
+				"What's this kind of sentence or style called in the grammar terminology?\n" + 
+				"Do institutions have right to ask for your credit card security code and all other CC data?\n" + 
+				"Why doesn't \"Ralph Breaks the Internet\" have \"wreck\" in the title?\n" + 
+				"Criticized for doing my job too well\n" + 
+				"Wrongfully held at Italian passport control for over an hour (EU citizen): can I get financial compensation?\n" + 
+				"copy certain spaces from a file\n" + 
+				" question feed\n" + 
+				"STACK OVERFLOW\n" + 
+				"Questions\n" + 
+				"Jobs\n" + 
+				"Developer Jobs Directory\n" + 
+				"Salary Calculator\n" + 
+				"Help\n" + 
+				"Mobile\n" + 
+				"Disable Responsiveness\n" + 
+				"PRODUCTS\n" + 
+				"Teams\n" + 
+				"Talent\n" + 
+				"Engagement\n" + 
+				"Enterprise\n" + 
+				"COMPANY\n" + 
+				"About\n" + 
+				"Press\n" + 
+				"Work Here\n" + 
+				"Legal\n" + 
+				"Privacy Policy\n" + 
+				"Contact Us\n" + 
+				"STACK EXCHANGE\n" + 
+				"NETWORK\n" + 
+				"Technology\n" + 
+				"Life / Arts\n" + 
+				"Culture / Recreation\n" + 
+				"Science\n" + 
+				"Other\n" + 
+				"Blog\n" + 
+				"Facebook\n" + 
+				"Twitter\n" + 
+				"LinkedIn\n" + 
+				"site design / logo © 2018 Stack Exchange Inc; user contributions licensed under cc by-sa 3.0 with attribution required. rev 2018.12.21.32493\n" + 
+				"\n" + 
+				" ");
+		System.out.println(chng.encode());
+		
+	}
+}

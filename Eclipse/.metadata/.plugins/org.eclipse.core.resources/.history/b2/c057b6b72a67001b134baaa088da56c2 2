@@ -1,0 +1,44 @@
+
+public class Test {
+
+	public static void main(String[] args) {
+		Person[] objects = new Person[4];
+
+		objects[0] = new Person("Helen Brown", "222 10th Street, Bethlehem", "(610)334-2288", "hbrown@gmail.com");
+		objects[1] = new Student("Gary Leister", "972 4th Street, Emmaus", "(202)331-7177", "gleister@gmail.com", 12345,
+				"CSE", 3.50);
+		objects[2] = new Employee("Beth Down", "234 Main Street, Philadelphia", "(610)222-4433", "bdown@gmail.com",
+				33442, "Systems Administrator", 75000.00);
+		objects[3] = new Faculty("Mark Jones", "21 Orchid Street, Bethlehem", "(610)333-2211", "mjones@gmail.com",
+				22222, "Faculty", 90000.00, "Professor");
+
+		// calling methods
+		printArray(objects);
+		selectionSort(objects);
+		printArray(objects);
+
+	}
+
+	public static void printArray(Person[] people) {
+		for (int i = 0; i < people.length; i++) {
+			System.out.print(people[i].toString());
+		}
+	}
+
+	public static void selectionSort(Person[] people) {
+		for (int i = 0; i < people.length; i++) {
+			int minInd = i;
+			String minName = people[i].getName();
+			for (int k = i + 1; k < people.length; k++) {
+				if(minName.compareTo(people[k].getName()) > 0) {
+					minName= people[k].getName();
+					minInd= k;
+				}
+			}
+			//swap
+			Person temp= people[i];
+			people[i]= people[minInd];
+			people[minInd]= temp;
+		}
+	}
+}

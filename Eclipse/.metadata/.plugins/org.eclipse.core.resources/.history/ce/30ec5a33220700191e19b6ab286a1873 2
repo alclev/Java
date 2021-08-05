@@ -1,0 +1,11 @@
+
+public class Testing {
+	public static void main(String args[]) {
+		Encoding chng= new Encoding("12");
+		System.out.print(chng.test());
+		String str= "13.4";
+		char cr= 'a';
+		int s=cr;
+		System.out.print(s);
+	}
+}

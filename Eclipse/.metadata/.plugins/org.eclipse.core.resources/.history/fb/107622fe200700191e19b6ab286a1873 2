@@ -1,0 +1,9 @@
+
+public class Testing {
+	public static void main(String args[]) {
+		//Encoding chng= new Encoding("test");
+		//System.out.print(chng.test());
+		String str= "1.25";
+		System.out.print(Double.parseDouble(str));
+	}
+}

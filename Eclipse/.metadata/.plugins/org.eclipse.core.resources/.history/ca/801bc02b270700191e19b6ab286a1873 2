@@ -1,0 +1,28 @@
+import java.lang.Math; 
+public class Encoding {
+	private double input;
+	private String str;
+
+	public Encoding(double input) {
+		this.input=input;
+	}
+	public Encoding(String str) {
+		this.str=str;
+	}
+	
+	public double strToDouble() {
+		double result=0;
+		for(int i=0;i<str.length();i++) {
+			char cr=str.charAt(i);
+			int add= cr;
+			result+=add;
+		}
+		return result;
+	}
+	public double encode() {
+		double output=strToDouble();
+		output=(Math.pow(output,3)-40)*2;
+		return output;
+	
+	}
+}
